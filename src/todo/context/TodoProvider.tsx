@@ -6,12 +6,19 @@ import { todoReducer } from "./todoReducer";
 const INITIAL_STATE: TodoState = {
   todos: [
     {
-      id: 123124123123123,
-      description: "Todo Inicial",
+      id: 9876,
+      description: "Hacer de comer",
+    },
+    {
+      id: 12312,
+      description: "Hacer ejercicio",
+    },
+    {
+      id: 5555,
+      description: "Hacer compras",
     },
   ],
-  completed: 0,
-  pending: 0,
+  todosCompleted:[],
 };
 
 interface Props {
@@ -21,8 +28,22 @@ interface Props {
 export const TodoProvider = ({ children }: Props) => {
   const [todoState, dispatch] = useReducer(todoReducer, INITIAL_STATE);
 
+  //Actions
+
+  const AddTodo = (id: number, description: string):void => {
+    dispatch({ type: "addTodo", payload: { id, description } });
+  };
+
+  const DeleteTodo = (id:number):void => {
+    dispatch({type:"deleteTodo", payload:{id}})
+  }
+
+  const CompleteTodo = (id:number, description:string):void => {
+    dispatch({type:"completeTodo", payload:{id, description}})
+  }
+
   return (
-    <TodoContext.Provider value={{ todoState }}>
+    <TodoContext.Provider value={{ todoState, AddTodo, DeleteTodo, CompleteTodo }}>
       {children}
     </TodoContext.Provider>
   );
