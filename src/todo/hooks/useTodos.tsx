@@ -2,8 +2,23 @@ import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 
 export const useTodos = () => {
-  const { todoState, AddTodo, DeleteTodo, CompleteTodo } =
-    useContext(TodoContext);
-  const { todos, todosCompleted } = todoState;
-  return { todos, todosCompleted, AddTodo, DeleteTodo, CompleteTodo };
+  const {
+    State,
+    AddTodo,
+    DeleteTodo,
+    CompleteTodo,
+    EditTodo,
+    ChangeTheme,
+  } = useContext(TodoContext);
+  const { todos, todosCompleted, darkTheme } = State;
+  return {
+    todos,
+    todosCompleted,
+    AddTodo,
+    DeleteTodo,
+    CompleteTodo,
+    EditTodo,
+    ChangeTheme,
+    darkTheme,
+  };
 };

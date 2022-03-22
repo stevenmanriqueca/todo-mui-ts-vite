@@ -1,9 +1,9 @@
 import { useReducer } from "react";
-import { TodoState } from "../interfaces/context/interfaces";
+import { State } from "../interfaces/context/interfaces";
 import { TodoContext } from "./TodoContext";
 import { todoReducer } from "./todoReducer";
 
-const INITIAL_STATE: TodoState = {
+const INITIAL_STATE: State = {
   todos: [
     {
       id: 9876,
@@ -18,7 +18,8 @@ const INITIAL_STATE: TodoState = {
       description: "Hacer compras",
     },
   ],
-  todosCompleted:[],
+  todosCompleted: [],
+  darkTheme: false,
 };
 
 interface Props {
@@ -26,24 +27,41 @@ interface Props {
 }
 
 export const TodoProvider = ({ children }: Props) => {
-  const [todoState, dispatch] = useReducer(todoReducer, INITIAL_STATE);
+  const [State, dispatch] = useReducer(todoReducer, INITIAL_STATE);
 
   //Actions
 
-  const AddTodo = (id: number, description: string):void => {
+  const ChangeTheme = (darkTheme: boolean): void => {
+    dispatch({ type: "changeTheme", payload: darkTheme });
+  };
+
+  const AddTodo = (id: number, description: string): void => {
     dispatch({ type: "addTodo", payload: { id, description } });
   };
 
-  const DeleteTodo = (id:number):void => {
-    dispatch({type:"deleteTodo", payload:{id}})
-  }
+  const CompleteTodo = (id: number, description: string): void => {
+    dispatch({ type: "completeTodo", payload: { id, description } });
+  };
 
-  const CompleteTodo = (id:number, description:string):void => {
-    dispatch({type:"completeTodo", payload:{id, description}})
-  }
+  const EditTodo = (id: number, description: string): void => {
+    dispatch({ type: "editTodo", payload: { id, description } });
+  };
+
+  const DeleteTodo = (id: number): void => {
+    dispatch({ type: "deleteTodo", payload: { id } });
+  };
 
   return (
-    <TodoContext.Provider value={{ todoState, AddTodo, DeleteTodo, CompleteTodo }}>
+    <TodoContext.Provider
+      value={{
+        State,
+        AddTodo,
+        DeleteTodo,
+        CompleteTodo,
+        EditTodo,
+        ChangeTheme,
+      }}
+    >
       {children}
     </TodoContext.Provider>
   );

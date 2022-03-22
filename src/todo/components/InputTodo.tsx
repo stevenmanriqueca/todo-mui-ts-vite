@@ -24,8 +24,12 @@ const InputTodo = (): JSX.Element => {
     event: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
-    AddTodo(Date.now(), inputTodo);
-    handleReset();
+    if (inputTodo.length === 0) {
+      return;
+    } else {
+      AddTodo(Date.now(), inputTodo);
+      handleReset();
+    }
   };
 
   return (

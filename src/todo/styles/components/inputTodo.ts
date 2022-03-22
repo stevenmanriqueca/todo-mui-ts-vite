@@ -1,5 +1,5 @@
 import TextField from "@mui/material/TextField";
-import { styled } from "@mui/material/styles";
+import { styled } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 
 export const TextFieldTodo = styled(TextField)(({ theme }) => ({
@@ -20,10 +20,9 @@ export const useStyles = makeStyles({
   box: {
     display: "flex",
     justifyContent: "center",
-    mx: 1,
-    my: 4,
+    margin: "10px 0px",
   },
   iconButton: {
-    ml: 0.5,
+    margin: "0 8px 0 0",
   },
 });

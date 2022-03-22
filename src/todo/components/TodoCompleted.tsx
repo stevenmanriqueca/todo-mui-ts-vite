@@ -17,7 +17,11 @@ const TodoCompleted = (): JSX.Element => {
         mx: 1,
       }}
     >
-      <Typography variant="h3" align="center" sx={{ m: 2, p:2, color:"secondary.light"  }}>
+      <Typography
+        variant="h3"
+        align="center"
+        sx={{ m: 2, p: 2, color: "secondary.light" }}
+      >
         Completed Todos
       </Typography>
       <List>
@@ -25,7 +29,11 @@ const TodoCompleted = (): JSX.Element => {
           {todosCompleted.map(({ id, description }) => {
             return (
               <Collapse key={id}>
-                <Typography align="center" variant="h5" sx={{m:2}}>
+                <Typography
+                  align="center"
+                  variant="h5"
+                  sx={{ m: 2, color: "secondary.main" }}
+                >
                   {description}
                 </Typography>
               </Collapse>

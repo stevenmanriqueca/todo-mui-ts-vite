@@ -1,11 +1,13 @@
 import { createContext } from "react";
-import { TodoState } from "../interfaces/context/interfaces";
+import { State } from "../interfaces/context/interfaces";
 
 export type TodoContextProps = {
-	todoState: TodoState;
+	State: State;
+	ChangeTheme: (darkTheme: boolean) => void;
 	AddTodo: (id: number, description: string) => void;
 	DeleteTodo: (id: number) => void;
 	CompleteTodo: (id: number, description: string) => void;
+	EditTodo: (id: number, description: string) => void;
 };
 
 export const TodoContext = createContext<TodoContextProps>(
