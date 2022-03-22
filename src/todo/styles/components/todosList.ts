@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/system";
 import { makeStyles } from "@mui/styles";
-import { darkTheme } from "../theme";
+import { darkThemePalette } from "../theme";
 
 export const TextFieldList = styled(TextField)(({ theme }) => ({
   "& .MuiInput-underline:before": {
@@ -18,7 +18,7 @@ export const TextFieldList = styled(TextField)(({ theme }) => ({
   },
 }));
 
-export const useStyles = makeStyles((theme: typeof darkTheme) => ({
+export const useStyles = makeStyles((theme: typeof darkThemePalette) => ({
   boxEsp: {
     borderRadius: "3%",
     backgroundColor: theme.palette.primary.main,
