@@ -21,5 +21,5 @@ yarn dev
 
 ## Demo
 
-Click here  [demo](https://yarnpkg.com/) view demo.
+Click [here](https://stevenmanriqueca.github.io/todo-mui-ts-vite/) view demo.
 
