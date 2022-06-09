@@ -21,5 +21,5 @@ yarn dev
 
 ## Demo
 
-Click [here](https://stevenmanriqueca.github.io/todo-mui-ts-vite/) view demo.
+Click [here](https://todo-mui-ts-vite.vercel.app/) view demo.
 
